@@ -1,7 +1,11 @@
 import tkinter
 from tkinter import ttk
 
-def showdata():
+def getdata():
+    name = name_entry.get()
+    register = register_entry.get()
+    standard = class_combobox.get()
+    section = section_combobox.get()
     tamil = int(tamil_entry.get())
     english = int(english_entry.get())
     math = int(math_entry.get())
@@ -11,7 +15,7 @@ def showdata():
     total_label_print.config(text=tot)
     avg = tot/5
     avg_label_print.config(text=avg)
-
+    print(name, register, standard, section)
 
 
 window = tkinter.Tk()
@@ -24,15 +28,15 @@ frame.pack()
 student_info_frame = tkinter.LabelFrame(frame, text="Student Information")
 student_info_frame.grid(row=0, column=0, padx=20, pady=10)
 
-first_name_label = tkinter.Label(student_info_frame, text="First Name")
-first_name_label.grid(row=0, column=0)
-last_name_label = tkinter.Label(student_info_frame, text="Last Name")
-last_name_label.grid(row=0, column=1)
+name_label = tkinter.Label(student_info_frame, text="Name")
+name_label.grid(row=0, column=0)
+register_label = tkinter.Label(student_info_frame, text="Register Number")
+register_label.grid(row=0, column=1)
 
-first_name_entry = tkinter.Entry(student_info_frame)
-last_name_entry = tkinter.Entry(student_info_frame)
-first_name_entry.grid(row=1, column=0)
-last_name_entry.grid(row=1, column=1)
+name_entry = tkinter.Entry(student_info_frame)
+register_entry = tkinter.Entry(student_info_frame)
+name_entry.grid(row=1, column=0)
+register_entry.grid(row=1, column=1)
 
 class_label = tkinter.Label(student_info_frame, text="Class")
 class_combobox = ttk.Combobox(student_info_frame, values=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
@@ -92,7 +96,7 @@ avg_label.grid(row=8, column=0,  padx=20, pady=10)
 avg_label_print = tkinter.Label(totavg)
 avg_label_print.grid(row=8, column=1,  padx=20, pady=10)
 
-button = tkinter.Button(frame, text="Enter data", command=showdata)
+button = tkinter.Button(frame, text="Enter data", command=getdata)
 button.grid(row=9, column=0, sticky="news", padx=20, pady=10)
 
 
