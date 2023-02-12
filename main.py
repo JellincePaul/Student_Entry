@@ -96,8 +96,17 @@ avg_label.grid(row=8, column=0,  padx=20, pady=10)
 avg_label_print = tkinter.Label(totavg)
 avg_label_print.grid(row=8, column=1,  padx=20, pady=10)
 
-button = tkinter.Button(frame, text="Enter data", command=getdata)
-button.grid(row=9, column=0, sticky="news", padx=20, pady=10)
+submit = tkinter.Button(frame, text="Enter data", command=getdata)
+submit.grid(row=9, column=0,  padx=20, pady=10)
+
+def reset():
+   name_entry.set("")
+    #register = register_entry.get()
+    #standard = class_combobox.get()
+    #section = section_combobox.get()
+
+adddata = tkinter.Button(frame, text="Add Data", command=reset)
+adddata.grid(row=9, column=1, padx=20, pady=10)
 
 
 
