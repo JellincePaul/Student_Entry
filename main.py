@@ -11,11 +11,15 @@ def getdata():
     math = int(math_entry.get())
     science = int(science_entry.get())
     social = int(social_entry.get())
-    tot = tamil + english + math + science + social
-    total_label_print.config(text=tot)
-    avg = tot/5
-    avg_label_print.config(text=avg)
-    print(name, register, standard, section)
+    if(tamil>100 or english>100 or math >100 or science>100 or social>100 or tamil<0 or english<0 or math<0 or science<0 or social<0):
+        print("Wrong  subject mark")
+        error_print.config(text="ERROR : Wrong  subject mark")
+    else:
+        tot = tamil + english + math + science + social
+        total_label_print.config(text=tot)
+        avg = tot/5
+        avg_label_print.config(text=avg)
+        print(name, register, standard, section)
 
 
 window = tkinter.Tk()
@@ -99,6 +103,9 @@ avg_label_print.grid(row=8, column=1,  padx=20, pady=10)
 submit = tkinter.Button(frame, text="Enter data", command=getdata)
 submit.grid(row=9, column=0,  padx=20, pady=10)
 
+
+error_print = tkinter.Label(frame)
+error_print.grid(row=10, column=0)
 def reset():
    name_entry.set("")
     #register = register_entry.get()
